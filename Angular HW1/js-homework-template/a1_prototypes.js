@@ -19,7 +19,7 @@ function runA1() {
      Rectangle.prototype = Object.create(Shape.prototype)
      Rectangle.prototype.constructor = Rectangle;
 
-
+// some changes 
 
     Rectangle.prototype.getArea = function(){ 
         return this.width * this.height
