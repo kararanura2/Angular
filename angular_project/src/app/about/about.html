@@ -1,0 +1,37 @@
+<div class="about-page">
+  <header>
+    <h1>{{ title }}</h1>
+    <p class="mission">{{ mission }}</p>
+  </header>
+
+  <section class="team-section">
+    <img [src]="photoUrl" alt="Team logo" class="team-photo">
+    <h2>Our Mission</h2>
+    <p>
+      Our goal is to create software that is not only functional but delightful to use.
+      We value simplicity, performance, and creativity in everything we build.
+    </p>
+  </section>
+
+  <section class="interaction">
+    <button (click)="like()">❤️ Like</button>
+    <span class="likes">Likes: {{ likes }}</span>
+
+    <button (click)="toggleThanks()">Toggle Message</button>
+
+    @if (showThanks) {
+      <p class="thanks-text">Thank you for supporting our team!</p>
+    }
+  </section>
+
+  <section class="greeting">
+    <h2>Say Hello 👋</h2>
+    <input
+      type="text"
+      [(ngModel)]="visitorName"
+      placeholder="Enter your name"
+      class="name-input"
+    >
+    <p class="greeting-text">Hello, {{ visitorName || 'friend' }}! Glad you’re here.</p>
+  </section>
+</div>
