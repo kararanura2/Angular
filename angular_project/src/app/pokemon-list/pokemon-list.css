@@ -1,0 +1,36 @@
+h2 {
+  color: #e3350d;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+button {
+  display: block;
+  margin: 0 auto 1rem;
+  padding: 8px 16px;
+  background-color: #3b4cca;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2a2ebf;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 300px;
+  margin: auto;
+}
+
+li {
+  border: 1px solid #ddd;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  background: #f9f9f9;
+  text-align: center;
+}

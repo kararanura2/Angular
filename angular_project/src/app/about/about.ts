@@ -14,7 +14,7 @@ export class About {
   mission = 'We are a passionate group of developers building modern, user-friendly applications.';
 
   // Property binding
-  photoUrl = 'https://angular.io/assets/images/logos/angular/angular.png';
+  photoUrl = 'https://p1.hiclipart.com/preview/425/772/49/logo-pkmn-center-pokemon-pokeball-logo-png-clipart.jpg';
 
   // Event binding
   likes = 0;

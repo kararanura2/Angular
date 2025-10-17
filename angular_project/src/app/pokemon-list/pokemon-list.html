@@ -1,0 +1,13 @@
+<h1>Pokémon List</h1>
+
+<button (click)="loadPokemons()">Load Pokémon</button>
+
+@if (isLoaded) {
+  <ul>
+    @for (pokemon of pokemons; track $index) {
+      <li>{{ pokemon.name }}</li>
+    }
+  </ul>
+} @else {
+  <p>Click "Load Pokémon" to fetch the list.</p>
+}
