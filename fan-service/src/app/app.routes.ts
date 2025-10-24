@@ -1,10 +1,8 @@
 import { Routes } from '@angular/router';
-import { ListClubs } from './list-clubs/list-clubs';
 import { ListLeagues } from './list-leagues/list-leagues';
+import { ListClubs } from './list-clubs/list-clubs';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'leagues', pathMatch: 'full' },
-    { path: 'clubs', component: ListClubs},
-    { path: 'leagues', component: ListLeagues},
-
+  { path: '', component: ListLeagues },
+  { path: 'clubs/:code', component: ListClubs },
 ];

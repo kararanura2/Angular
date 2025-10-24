@@ -1,9 +1,10 @@
-import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { ClubDetails } from '../club-details/club-details';
+import { ActivatedRoute } from '@angular/router';
 import { Club } from '../../models/clubs';
+import { ClubDetails } from '../club-details/club-details';
 
 @Component({
   selector: 'app-list-clubs',
@@ -12,32 +13,25 @@ import { Club } from '../../models/clubs';
   templateUrl: './list-clubs.html',
   styleUrls: ['./list-clubs.css']
 })
-export class ListClubs implements OnInit, OnChanges {
-  @Input() leagueCode: string = 'PL'; // default from parent
-
+export class ListClubs implements OnInit {
+  leagueCode = 'PL';          // default
   clubs: Club[] = [];
   filteredClubs: Club[] = [];
   selectedClub: Club | null = null;
-  loading = false;
+  loading = true;
   searchTerm = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.loadClubs();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['leagueCode'] && !changes['leagueCode'].firstChange) {
+    this.route.paramMap.subscribe(params => {
+      this.leagueCode = params.get('code') || 'WC';
       this.loadClubs();
-    }
+    });
   }
 
   loadClubs(): void {
     this.loading = true;
-    this.filteredClubs = [];
-    this.selectedClub = null;
-
     const url = `https://api.football-data.org/v4/competitions/${this.leagueCode}/teams`;
     const headers = { 'X-Auth-Token': '4dadba718e2d4ebdadd914eecb529da2' };
 
@@ -54,14 +48,12 @@ export class ListClubs implements OnInit, OnChanges {
     });
   }
 
-  searchClubs(): void {
+  searchClubs() {
     const term = this.searchTerm.toLowerCase();
-    this.filteredClubs = this.clubs.filter((c) =>
-      c.name.toLowerCase().includes(term)
-    );
+    this.filteredClubs = this.clubs.filter(c => c.name.toLowerCase().includes(term));
   }
 
-  selectClub(club: Club): void {
+  selectClub(club: Club) {
     this.selectedClub = this.selectedClub === club ? null : club;
   }
 }

@@ -7,7 +7,7 @@ import { Club } from '../models/clubs';
 export class ApiService {
   private baseUrl = 'https://api.football-data.org/v4';
   private headers = new HttpHeaders({
-    'X-Auth-Token': 'YOUR_API_KEY_HERE'
+    'X-Auth-Token': '4dadba718e2d4ebdadd914eecb529da2'
   });
 
   constructor(private http: HttpClient) {}
