@@ -1,0 +1,12 @@
+<div class="club-details-card">
+  <img [src]="club.crest" [alt]="club.name" class="club-logo-large" />
+  <h2>{{ club.name }}</h2>
+  <p><strong>Short Name:</strong> {{ club.shortName }}</p>
+  <p><strong>TLA:</strong> {{ club.tla }}</p>
+  <p><strong>Area:</strong> {{ club.area.name }}</p>
+  <p *ngIf="club.address"><strong>Address:</strong> {{ club.address }}</p>
+  <p *ngIf="club.website">
+    <strong>Website:</strong>
+    <a [href]="club.website" target="_blank">{{ club.website }}</a>
+  </p>
+</div>

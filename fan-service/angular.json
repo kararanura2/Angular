@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular_project": {
+    "fan-service": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -58,10 +58,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular_project:build:production"
+              "buildTarget": "fan-service:build:production"
             },
             "development": {
-              "buildTarget": "angular_project:build:development"
+              "buildTarget": "fan-service:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,6 +88,6 @@
     }
   },
   "cli": {
-    "analytics": "fbe62d7e-c5a8-4a9c-82db-b310e6a98515"
+    "analytics": "0b285708-d11d-4591-8d55-47420c42dc15"
   }
 }

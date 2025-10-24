@@ -1,0 +1,35 @@
+<div class="clubs-page">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>⚽ Football Clubs Directory</h1>
+
+    <input
+      type="text"
+      placeholder="Search clubs..."
+      [(ngModel)]="searchTerm"
+      (input)="searchClubs()"
+      class="search-bar"
+    />
+
+    <div *ngIf="loading" class="loading">Loading clubs...</div>
+
+    <div class="clubs-container" *ngIf="!loading">
+      <div *ngFor="let club of filteredClubs" class="club-card">
+        <img [src]="club.crest" [alt]="club.name" class="club-logo" />
+        <div class="club-info">
+          <h3>{{ club.name }}</h3>
+          <p><strong>{{ club.area.name }}</strong></p>
+
+          <button (click)="selectClub(club)">
+            {{ selectedClub === club ? 'Hide Details' : 'View Details' }}
+          </button>
+
+          <app-club-details
+            *ngIf="selectedClub === club"
+            [club]="club">
+          </app-club-details>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

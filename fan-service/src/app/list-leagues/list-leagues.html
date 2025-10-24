@@ -1,0 +1,30 @@
+<div class="leagues-page">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>🏆 Choose a League</h1>
+    <p class="subtitle">Pick a major competition to load its teams</p>
+
+    <div class="controls">
+      <div *ngIf="loading" class="loading">Loading leagues...</div>
+
+      <div class="leagues-list" *ngIf="!loading && leagues.length">
+        <button
+          *ngFor="let league of leagues"
+          class="league-btn"
+          [class.active]="league.code === selectedLeague"
+          (click)="selectLeague(league.code)"
+          title="{{ league.name }}"
+        >
+          <div class="league-line">
+            <div class="league-name">{{ league.name }}</div>
+            <div class="league-meta">{{ league.area?.name }} • {{ league.code }}</div>
+          </div>
+        </button>
+      </div>
+
+      <div *ngIf="!loading && !leagues.length" class="no-data">
+        No major leagues found (check API key or network).
+      </div>
+    </div>
+  </div>
+</div>

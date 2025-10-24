@@ -1,0 +1,17 @@
+.club-details-card {
+  margin-top: 10px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 14px;
+  color: #fff;
+}
+.club-details-card a {
+  color: #2ecc71;
+}
+.club-logo-large {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}

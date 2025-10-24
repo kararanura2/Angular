@@ -1,5 +1,5 @@
 {
-  "name": "angular-project",
+  "name": "fan-service",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:angular_project": "node dist/angular_project/server/server.mjs"
+    "serve:ssr:fan-service": "node dist/fan-service/server/server.mjs"
   },
   "prettier": {
     "printWidth": 100,
